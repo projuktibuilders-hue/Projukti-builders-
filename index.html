@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>প্রযুক্তি বিল্ডার্স | Projukti Builders Ltd.</title>
+  <meta name="description" content="প্রযুক্তি বিল্ডার্স লিমিটেড - ঢাকা, বাংলাদেশের একটি বিশ্বস্ত রিয়েল এস্টেট কোম্পানি। আমাদের ৩৬টিরও বেশি প্রজেক্টে বিনিয়োগ করুন।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1a3c6e;
+      --primary-light: #2557a7;
+      --gold: #c9a84c;
+      --gold-light: #f0c96a;
+      --dark: #0f1c2e;
+      --light: #f5f7fa;
+      --white: #ffffff;
+      --text: #333333;
+      --text-light: #666666;
+      --border: #e0e0e0;
+      --shadow: 0 4px 20px rgba(0,0,0,0.1);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(15, 28, 46, 0.97);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 700; color: var(--dark);
+    }
+    .nav-title { color: var(--white); }
+    .nav-title .bn { font-size: 16px; font-weight: 600; display: block; }
+    .nav-title .en { font-size: 11px; color: var(--gold-light); opacity: 0.85; }
+    .nav-links {
+      display: flex; gap: 28px; list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none; font-size: 14px; font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--dark) !important;
+      padding: 8px 20px; border-radius: 25px; font-weight: 600 !important;
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      padding: 5px;
+    }
+    .hamburger span {
+      width: 25px; height: 2px; background: var(--white); border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, #1e4a8a 100%);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { max-width: 650px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      color: var(--gold-light);
+      padding: 6px 16px; border-radius: 25px;
+      font-size: 13px; font-weight: 500; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--white); font-weight: 700;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--gold-light); }
+    .hero p {
+      font-size: 17px; color: rgba(255,255,255,0.8);
+      margin-bottom: 36px; max-width: 540px;
+    }
+    .hero-stats {
+      display: flex; gap: 32px; margin-bottom: 40px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 700; color: var(--gold-light); }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.65); }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--dark); padding: 14px 32px; border-radius: 8px;
+      font-size: 15px; font-weight: 600; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.4); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--white); padding: 14px 32px; border-radius: 8px;
+      font-size: 15px; font-weight: 500; text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+    .hero-visual {
+      position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      opacity: 0.15;
+    }
+    .hero-block {
+      width: 120px; height: 160px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);
+    }
+    .hero-block:nth-child(2) { height: 200px; margin-top: 40px; }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 80px 5%; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(26, 60, 110, 0.08);
+      color: var(--primary-light);
+      padding: 5px 16px; border-radius: 25px;
+      font-size: 13px; font-weight: 600; margin-bottom: 12px;
+      border: 1px solid rgba(26, 60, 110, 0.15);
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--dark); font-weight: 700; margin-bottom: 12px;
+    }
+    .section-subtitle { font-size: 16px; color: var(--text-light); max-width: 560px; margin: 0 auto; }
+    .divider {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px; margin: 16px auto 0;
+    }
+
+    /* ===== ABOUT ===== */
+    .about { background: var(--light); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .about-text h2 { font-size: 2rem; color: var(--dark); margin-bottom: 16px; font-weight: 700; }
+    .about-text p { color: var(--text-light); margin-bottom: 20px; font-size: 15px; }
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .feature-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: var(--white); padding: 14px; border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .feature-icon { font-size: 22px; flex-shrink: 0; }
+    .feature-text strong { display: block; font-size: 13px; color: var(--dark); }
+    .feature-text span { font-size: 12px; color: var(--text-light); }
+    .about-card {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 20px; padding: 40px; color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .about-card::after {
+      content: '🏗️';
+      position: absolute; right: 20px; bottom: 20px;
+      font-size: 80px; opacity: 0.1;
+    }
+    .about-card h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--gold-light); }
+    .about-card-stat { margin-bottom: 16px; }
+    .about-card-stat .num { font-size: 2.5rem; font-weight: 700; color: var(--gold-light); }
+    .about-card-stat .label { font-size: 14px; color: rgba(255,255,255,0.75); }
+
+    /* ===== PROJECTS ===== */
+    .projects { background: var(--white); }
+    .project-filter {
+      display: flex; gap: 12px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 25px;
+      border: 2px solid var(--border);
+      background: var(--white); color: var(--text-light);
+      cursor: pointer; font-size: 14px; font-weight: 500;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary); color: var(--white); border-color: var(--primary);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+    .project-card-header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 24px 20px 20px;
+      position: relative;
+    }
+    .project-card-header.gold {
+      background: linear-gradient(135deg, #7c5c1e, var(--gold));
+    }
+    .project-card-header.green {
+      background: linear-gradient(135deg, #1a5c3a, #2e8b57);
+    }
+    .project-card-header.purple {
+      background: linear-gradient(135deg, #3a1a5c, #6b3fa0);
+    }
+    .project-number {
+      position: absolute; top: 14px; right: 14px;
+      background: rgba(255,255,255,0.2);
+      color: var(--white); font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 12px;
+    }
+    .project-type-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 11px; padding: 3px 10px; border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    .project-card-title {
+      font-size: 16px; font-weight: 700; color: var(--white);
+      margin-bottom: 4px; line-height: 1.4;
+    }
+    .project-card-subtitle {
+      font-size: 13px; color: rgba(255,255,255,0.75);
+    }
+    .project-card-body { padding: 20px; flex: 1; }
+    .project-detail {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text-light); margin-bottom: 8px;
+    }
+    .project-detail .icon { font-size: 15px; flex-shrink: 0; }
+    .project-detail strong { color: var(--text); }
+    .project-card-footer {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      display: flex; gap: 10px;
+    }
+    .btn-card {
+      flex: 1; padding: 9px 12px; border-radius: 8px;
+      font-size: 13px; font-weight: 600; text-align: center;
+      text-decoration: none; transition: all 0.2s;
+      font-family: inherit; cursor: pointer; border: none;
+    }
+    .btn-card-primary {
+      background: var(--primary); color: var(--white);
+    }
+    .btn-card-primary:hover { background: var(--primary-light); }
+    .btn-card-wa {
+      background: #25D366; color: var(--white);
+    }
+    .btn-card-wa:hover { background: #1da851; }
+
+    /* ===== CATEGORIES ===== */
+    .categories { background: var(--light); }
+    .cat-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .cat-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 32px 24px; text-align: center;
+      box-shadow: var(--shadow); border: 1px solid var(--border);
+      transition: transform 0.3s;
+    }
+    .cat-card:hover { transform: translateY(-4px); }
+    .cat-icon { font-size: 48px; margin-bottom: 16px; }
+    .cat-title { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .cat-count {
+      display: inline-block;
+      background: var(--primary); color: var(--white);
+      padding: 3px 12px; border-radius: 12px; font-size: 13px; font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .cat-desc { font-size: 13px; color: var(--text-light); }
+
+    /* ===== CONTACT ===== */
+    .contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .contact-info h3 { font-size: 1.5rem; color: var(--dark); margin-bottom: 20px; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-bottom: 20px; padding: 16px; background: var(--light);
+      border-radius: 10px;
+    }
+    .contact-item-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--primary); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .contact-item-text strong { display: block; font-size: 13px; color: var(--text-light); margin-bottom: 2px; }
+    .contact-item-text a, .contact-item-text span { font-size: 15px; color: var(--dark); text-decoration: none; font-weight: 500; }
+    .contact-item-text a:hover { color: var(--primary-light); }
+    .contact-form { background: var(--light); padding: 36px; border-radius: var(--radius); }
+    .contact-form h3 { font-size: 1.3rem; color: var(--dark); margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 16px; border-radius: 8px;
+      border: 2px solid var(--border); background: var(--white);
+      font-size: 14px; font-family: inherit; color: var(--text);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--primary-light);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn-submit {
+      width: 100%; padding: 14px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white); font-size: 15px; font-weight: 600;
+      border: none; cursor: pointer; font-family: inherit;
+      transition: opacity 0.2s;
+    }
+    .btn-submit:hover { opacity: 0.9; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,0.75);
+      padding: 60px 5% 30px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 40px;
+    }
+    .footer-brand .logo {
+      font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 12px;
+    }
+    .footer-brand .logo span { color: var(--gold-light); }
+    .footer-brand p { font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 16px;
+      transition: background 0.2s;
+    }
+    .social-link:hover { background: var(--gold); }
+    .footer-col h4 { color: var(--white); font-size: 15px; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px; text-align: center; font-size: 13px;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7); z-index: 2000;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 16px;
+      max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto;
+      padding: 36px; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--light); border: none; width: 32px; height: 32px;
+      border-radius: 50%; cursor: pointer; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal h2 { font-size: 1.4rem; color: var(--dark); margin-bottom: 20px; }
+    .modal-detail { margin-bottom: 12px; font-size: 14px; }
+    .modal-detail strong { color: var(--text); display: inline-block; min-width: 140px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-visual { display: none; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+      .about-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo">PB</div>
+    <div class="nav-title">
+      <span class="bn">প্রযুক্তি বিল্ডার্স</span>
+      <span class="en">Projukti Builders Ltd.</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">আমাদের সম্পর্কে</a></li>
+    <li><a href="#projects">প্রজেক্টসমূহ</a></li>
+    <li><a href="#categories">বিভাগ</a></li>
+    <li><a href="#contact">যোগাযোগ</a></li>
+    <li><a href="https://wa.me/8801708029997" class="nav-cta" target="_blank">📞 কল করুন</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">🏆 বাংলাদেশের বিশ্বস্ত রিয়েল এস্টেট কোম্পানি</div>
+    <h1>আপনার স্বপ্নের <span>বাড়ি ও বিনিয়োগ</span> আমাদের সাথে</h1>
+    <p>প্রযুক্তি বিল্ডার্স লিমিটেড — ঢাকায় ৩৬টিরও বেশি আবাসিক, বাণিজ্যিক ও স্বাস্থ্যসেবা প্রজেক্টে আপনার স্বপ্নকে বাস্তবে রূপ দিচ্ছে।</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">৩৬+</div>
+        <div class="stat-label">মোট প্রজেক্ট</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">৭৪+</div>
+        <div class="stat-label">কাঠা জমি</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">১০০০+</div>
+        <div class="stat-label">সন্তুষ্ট গ্রাহক</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">১০+</div>
+        <div class="stat-label">বছরের অভিজ্ঞতা</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">🏠 সকল প্রজেক্ট দেখুন</a>
+      <a href="#contact" class="btn-outline">📋 যোগাযোগ করুন</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-tag">আমাদের সম্পর্কে</div>
+      <h2>প্রযুক্তি বিল্ডার্স লিমিটেড</h2>
+      <p>আমরা ঢাকার একটি বিশ্বস্ত রিয়েল এস্টেট কোম্পানি যা আবাসিক ফ্ল্যাট, বাণিজ্যিক স্পেস, হাসপাতাল, শিক্ষা প্রতিষ্ঠান এবং আরও অনেক ধরনের প্রজেক্ট পরিচালনা করে।</p>
+      <p>আমাদের লক্ষ্য হলো সাধারণ মানুষের কাছে সাশ্রয়ী মূল্যে উন্নত মানের আবাসন সুবিধা পৌঁছে দেওয়া এবং নিরাপদ বিনিয়োগের সুযোগ তৈরি করা।</p>
+      <div class="about-features">
+        <div class="feature-item">
+          <div class="feature-icon">🏗️</div>
+          <div class="feature-text">
+            <strong>মানসম্পন্ন নির্মাণ</strong>
+            <span>উন্নত উপকরণ ব্যবহার</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💰</div>
+          <div class="feature-text">
+            <strong>সহজ কিস্তি</strong>
+            <span>মাসিক কিস্তিতে পরিশোধ</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📍</div>
+          <div class="feature-text">
+            <strong>উত্তম অবস্থান</strong>
+            <span>ঢাকার সেরা এলাকায়</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-text">
+            <strong>নিরাপদ বিনিয়োগ</strong>
+            <span>আইনি নিশ্চয়তা সহ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-card">
+      <h3>🏆 আমাদের অর্জন</h3>
+      <div class="about-card-stat">
+        <div class="num">৩৬+</div>
+        <div class="label">সক্রিয় প্রজেক্ট</div>
+      </div>
+      <div class="about-card-stat">
+        <div class="num">৭৪ কাঠা</div>
+        <div class="label">স্যাটেলাইট টাওয়ার প্রজেক্ট</div>
+      </div>
+      <div class="about-card-stat">
+        <div class="num">২০ তলা</div>
+        <div class="label">গ্লোবাল প্যালেস</div>
+      </div>
+      <div class="about-card-stat">
+        <div class="num">৪০ কাঠা</div>
+        <div class="label">কমিউনিটি হল প্রজেক্ট</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-header">
+    <div class="section-tag">বিভাগসমূহ</div>
+    <h2 class="section-title">আমাদের প্রজেক্টের ধরন</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">আবাসিক থেকে বাণিজ্যিক — সব ধরনের চাহিদা পূরণে আমরা প্রস্তুত</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <div class="cat-icon">🏢</div>
+      <div class="cat-title">আবাসিক ফ্ল্যাট</div>
+      <div class="cat-count">২৫+ প্রজেক্ট</div>
+      <div class="cat-desc">কনডোমিনিয়াম ও আবাসিক টাওয়ার প্রজেক্ট — বিভিন্ন সাইজের ফ্ল্যাট</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🏥</div>
+      <div class="cat-title">স্বাস্থ্যসেবা</div>
+      <div class="cat-count">২ প্রজেক্ট</div>
+      <div class="cat-desc">গ্লোবাল মেডিকেল হাসপাতাল ও ওয়ারি গোল্ডেন হাসপাতাল</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🎓</div>
+      <div class="cat-title">শিক্ষা প্রতিষ্ঠান</div>
+      <div class="cat-count">৩ প্রজেক্ট</div>
+      <div class="cat-desc">নার্সিং ইনস্টিটিউট, মেডিকেল কলেজ ও ইংলিশ মিডিয়াম স্কুল</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🛍️</div>
+      <div class="cat-title">বাণিজ্যিক স্পেস</div>
+      <div class="cat-count">৪ প্রজেক্ট</div>
+      <div class="cat-desc">জিম সেন্টার, রেস্তোরাঁ, কমিউনিটি সেন্টার ও সুপারমার্কেট</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🌆</div>
+      <div class="cat-title">রিয়েল এস্টেট</div>
+      <div class="cat-count">১+ প্রজেক্ট</div>
+      <div class="cat-desc">প্রযুক্তি গ্লোবাল সিটি — ২০০ একর বিশাল প্রজেক্ট</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🏙️</div>
+      <div class="cat-title">ভবিষ্যৎ পরিকল্পনা</div>
+      <div class="cat-count">৬৪ জেলা</div>
+      <div class="cat-desc">৬৪ জেলায় ৬৪টি প্রযুক্তি টাওয়ার, হাসপাতাল ও কলেজ</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-header">
+    <div class="section-tag">আমাদের প্রজেক্ট</div>
+    <h2 class="section-title">৩৬টি প্রজেক্ট</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">গুগল ড্রাইভ থেকে সংগৃহীত সকল প্রজেক্টের বিস্তারিত তথ্য</p>
+  </div>
+  <div class="project-filter">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">সকল প্রজেক্ট</button>
+    <button class="filter-btn" onclick="filterProjects('residential', this)">আবাসিক</button>
+    <button class="filter-btn" onclick="filterProjects('healthcare', this)">স্বাস্থ্যসেবা</button>
+    <button class="filter-btn" onclick="filterProjects('education', this)">শিক্ষা</button>
+    <button class="filter-btn" onclick="filterProjects('commercial', this)">বাণিজ্যিক</button>
+  </div>
+  <div class="projects-grid" id="projectsGrid">
+    <!-- Projects injected by JS -->
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-header">
+    <div class="section-tag">যোগাযোগ</div>
+    <h2 class="section-title">আমাদের সাথে যোগাযোগ করুন</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>📍 আমাদের ঠিকানা ও যোগাযোগ</h3>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div class="contact-item-text">
+          <strong>অফিস ঠিকানা</strong>
+          <span>তাজ মার্কেট (৫ম তলা), ঘাটারচর, মোহাম্মদপুর-বসিলা রোড, ঢাকা-১৩১২</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div class="contact-item-text">
+          <strong>ফোন নম্বর</strong>
+          <a href="tel:+8801708029997">01708-029997</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">💬</div>
+        <div class="contact-item-text">
+          <strong>হোয়াটসঅ্যাপ</strong>
+          <a href="https://wa.me/8801770736668" target="_blank">+88 01770-736668</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">💬</div>
+        <div class="contact-item-text">
+          <strong>হোয়াটসঅ্যাপ ২</strong>
+          <a href="https://wa.me/8801622337100" target="_blank">+88 01622-337100</a>
+        </div>
+      </div>
+      <div style="margin-top:24px;">
+        <a href="https://wa.me/8801708029997" target="_blank" class="btn-primary" style="display:inline-flex;">
+          💬 WhatsApp-এ মেসেজ করুন
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>📋 অনুসন্ধান পাঠান</h3>
+      <form onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label>আপনার নাম *</label>
+          <input type="text" placeholder="আপনার পূর্ণ নাম লিখুন" required />
+        </div>
+        <div class="form-group">
+          <label>ফোন নম্বর *</label>
+          <input type="tel" placeholder="01XXXXXXXXX" required />
+        </div>
+        <div class="form-group">
+          <label>আগ্রহী প্রজেক্ট</label>
+          <select>
+            <option value="">প্রজেক্ট নির্বাচন করুন</option>
+            <option>Projukti Global Satellite Tower (74 Katha)</option>
+            <option>Projukti Global Palace (20 Katha)</option>
+            <option>Projukti Global Diamond Palace (20 Katha)</option>
+            <option>Projukti Global Peace (30 Katha)</option>
+            <option>Projukti Global Tower (20 Katha)</option>
+            <option>Projukti Salehin Tower (18 Katha)</option>
+            <option>Projukti River View Tower (15 Katha)</option>
+            <option>Projukti Amin Bazar Tower-1 (18 Katha)</option>
+            <option>Projukti Amin Bazar Tower-2 (10 Katha)</option>
+            <option>অন্যান্য</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>বার্তা</label>
+          <textarea placeholder="আপনার প্রশ্ন বা মন্তব্য লিখুন..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">📤 অনুসন্ধান পাঠান</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">প্রযুক্তি <span>বিল্ডার্স</span></div>
+      <p>ঢাকা, বাংলাদেশের একটি বিশ্বস্ত রিয়েল এস্টেট কোম্পানি। আমরা আপনার স্বপ্নের বাড়ি তৈরিতে প্রতিশ্রুতিবদ্ধ।</p>
+      <div class="social-links">
+        <a href="#" class="social-link">📘</a>
+        <a href="https://wa.me/8801708029997" class="social-link" target="_blank">💬</a>
+        <a href="#" class="social-link">📷</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>দ্রুত লিংক</h4>
+      <ul>
+        <li><a href="#home">হোম</a></li>
+        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+        <li><a href="#projects">প্রজেক্টসমূহ</a></li>
+        <li><a href="#categories">বিভাগ</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>প্রজেক্ট বিভাগ</h4>
+      <ul>
+        <li><a href="#">আবাসিক ফ্ল্যাট</a></li>
+        <li><a href="#">বাণিজ্যিক স্পেস</a></li>
+        <li><a href="#">স্বাস্থ্যসেবা</a></li>
+        <li><a href="#">শিক্ষা প্রতিষ্ঠান</a></li>
+        <li><a href="#">রিয়েল এস্টেট</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>যোগাযোগ</h4>
+      <ul>
+        <li><a href="tel:+8801708029997">📞 01708-029997</a></li>
+        <li><a href="https://wa.me/8801770736668">💬 01770-736668</a></li>
+        <li><a href="https://wa.me/8801622337100">💬 01622-337100</a></li>
+        <li><a href="#">📍 মোহাম্মদপুর, ঢাকা</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© ২০২৫ প্রযুক্তি বিল্ডার্স লিমিটেড | সর্বস্বত্ব সংরক্ষিত</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/8801708029997" class="wa-float" target="_blank" title="WhatsApp-এ যোগাযোগ করুন">💬</a>
+
+<!-- Project Detail Modal -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2 id="modalTitle"></h2>
+    <div id="modalContent"></div>
+    <div style="margin-top:24px; display:flex; gap:12px;">
+      <a id="modalWA" href="#" target="_blank" class="btn-primary" style="flex:1; text-align:center; justify-content:center;">💬 WhatsApp করুন</a>
+      <button onclick="closeModal()" class="btn-submit" style="flex:1;">বন্ধ করুন</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const projects = [
+  // ===== RESIDENTIAL =====
+  {
+    id: 1, num: "১-৯", category: "residential",
+    title: "Projukti Global Satellite Tower",
+    titleBn: "প্রযুক্তি গ্লোবাল স্যাটেলাইট টাওয়ার",
+    land: "৭৪ কাঠা", floors: "১৬ তলা",
+    flatSizes: "৭২০ / ১১৫২ / ১৪৪০ স্কয়ার ফিট",
+    installment: "৮,০০০ ~ ৯,০০০/= মাসিক কিস্তি",
+    landPrice: "৫৫০/= স্কয়ার ফিট",
+    constructionCost: "২২০০~২৫০০/= স্কয়ার ফিট",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 2, num: "১০", category: "residential",
+    title: "Projukti Global Palace",
+    titleBn: "প্রযুক্তি গ্লোবাল প্যালেস",
+    land: "২০ কাঠা", floors: "২০ তলা",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "৪৫,০০০ ~ ৪৯,০০০/= মাসিক কিস্তি (১৬০০ সফট)",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 3, num: "১২", category: "residential",
+    title: "Projukti Global Diamond Palace",
+    titleBn: "প্রযুক্তি গ্লোবাল ডায়মন্ড প্যালেস",
+    land: "২০ কাঠা", floors: "২০ তলা",
+    flatSizes: "২১০০ স্কয়ার ফিট",
+    installment: "৬৬,০০০ ~ ৭৫,০০০/= মাসিক কিস্তি",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 4, num: "১৫", category: "residential",
+    title: "Projukti Global Peace",
+    titleBn: "প্রযুক্তি গ্লোবাল পিস",
+    land: "৩০ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক প্রজেক্ট",
+    color: "green",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 5, num: "১৭", category: "residential",
+    title: "Projukti Global Palace",
+    titleBn: "প্রযুক্তি গ্লোবাল প্যালেস",
+    land: "২০ কাঠা", floors: "২০ তলা",
+    flatSizes: "২৪০০ স্কয়ার ফিট",
+    installment: "৭৬,০০০ ~ ৮৫,০০০/= মাসিক কিস্তি",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 6, num: "১৯", category: "residential",
+    title: "Projukti Global Diamond Palace",
+    titleBn: "প্রযুক্তি গ্লোবাল ডায়মন্ড প্যালেস",
+    land: "২০ কাঠা", floors: "২০ তলা",
+    flatSizes: "৩৬০০ স্কয়ার ফিট",
+    installment: "৯০,০০০ ~ ৯৯,০০০/= মাসিক কিস্তি",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 7, num: "২১", category: "residential",
+    title: "Projukti Global Tower",
+    titleBn: "প্রযুক্তি গ্লোবাল টাওয়ার",
+    land: "২০ কাঠা", floors: "১৫ তলা",
+    flatSizes: "৮০০ স্কয়ার ফিট",
+    installment: "২০,০০০ ~ ২৪,০০০/= মাসিক কিস্তি",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 8, num: "২৩", category: "residential",
+    title: "Projukti Salehin Tower",
+    titleBn: "প্রযুক্তি সালেহীন টাওয়ার",
+    land: "১৮ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক টাওয়ার",
+    color: "purple",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 9, num: "২৫", category: "residential",
+    title: "Projukti River View Tower",
+    titleBn: "প্রযুক্তি রিভার ভিউ টাওয়ার",
+    land: "১৫ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক টাওয়ার",
+    color: "green",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 10, num: "২৬", category: "residential",
+    title: "Projukti Shopnobilas",
+    titleBn: "প্রযুক্তি স্বপ্নবিলাস",
+    land: "৬ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক প্রজেক্ট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 11, num: "২৭", category: "residential",
+    title: "Projukti Khonikaloy",
+    titleBn: "প্রযুক্তি ক্ষণিকালয়",
+    land: "৭.৫ ডেসিমাল", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 12, num: "২৯", category: "residential",
+    title: "Projukti Amin Bazar Tower-1",
+    titleBn: "প্রযুক্তি আমিন বাজার টাওয়ার-১",
+    land: "১৮ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক টাওয়ার",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 13, num: "৩০", category: "residential",
+    title: "Projukti Amin Bazar Tower-2",
+    titleBn: "প্রযুক্তি আমিন বাজার টাওয়ার-২",
+    land: "১০ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক টাওয়ার",
+    color: "purple",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 14, num: "৩১", category: "residential",
+    title: "Projukti Manikdi Tower",
+    titleBn: "প্রযুক্তি মানিকদী টাওয়ার",
+    land: "৫ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক টাওয়ার",
+    color: "green",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 15, num: "৩২", category: "residential",
+    title: "Projukti Dream Square",
+    titleBn: "প্রযুক্তি ড্রিম স্কোয়ার",
+    land: "১০ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 16, num: "৩৩", category: "residential",
+    title: "Projukti Apon Vubon",
+    titleBn: "প্রযুক্তি আপন ভুবন",
+    land: "৮ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক প্রজেক্ট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 17, num: "৩৪", category: "residential",
+    title: "Projukti Allah Dan Cottage",
+    titleBn: "প্রযুক্তি আল্লাহ দান কটেজ",
+    land: "৩ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "কটেজ প্রজেক্ট",
+    color: "green",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 18, num: "৩৫", category: "residential",
+    title: "Projukti Dream Tower",
+    titleBn: "প্রযুক্তি ড্রিম টাওয়ার",
+    land: "৪ কাঠা", floors: "—",
+    flatSizes: "বিভিন্ন সাইজ",
+    installment: "যোগাযোগ করুন",
+    type: "আবাসিক টাওয়ার",
+    color: "purple",
+    wa: "https://wa.me/8801708029997"
+  },
+  // Global Palace variants
+  {
+    id: 19, num: "—", category: "residential",
+    title: "Projukti Global Palace (40 Katha)",
+    titleBn: "প্রযুক্তি গ্লোবাল প্যালেস (৪০ কাঠা)",
+    land: "৪০ কাঠা", floors: "২০ তলা",
+    flatSizes: "৪৫০ স্কয়ার ফিট",
+    installment: "যোগাযোগ করুন",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 20, num: "—", category: "residential",
+    title: "Projukti Global Diamond Shopping Mall",
+    titleBn: "প্রযুক্তি গ্লোবাল ডায়মন্ড শপিং মল",
+    land: "৪০ কাঠা", floors: "২০ তলা",
+    flatSizes: "—",
+    installment: "যোগাযোগ করুন",
+    type: "শপিং মল প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 21, num: "—", category: "residential",
+    title: "Projukti Global Community Hall",
+    titleBn: "প্রযুক্তি গ্লোবাল কমিউনিটি হল",
+    land: "৪০ কাঠা", floors: "২০ তলা",
+    flatSizes: "—",
+    installment: "যোগাযোগ করুন",
+    type: "কমিউনিটি হল প্রজেক্ট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  // ===== HEALTHCARE =====
+  {
+    id: 22, num: "—", category: "healthcare",
+    title: "Projukti Global Medical Hospital",
+    titleBn: "প্রযুক্তি গ্লোবাল মেডিকেল হাসপাতাল",
+    land: "—", floors: "—",
+    flatSizes: "—",
+    installment: "—",
+    type: "হাসপাতাল প্রজেক্ট",
+    color: "green",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 23, num: "—", category: "healthcare",
+    title: "Projukti Wari Golden Hospital Limited",
+    titleBn: "প্রযুক্তি ওয়ারি গোল্ডেন হাসপাতাল লিমিটেড",
+    land: "—", floors: "—",
+    flatSizes: "—",
+    installment: "—",
+    type: "হাসপাতাল প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  // ===== EDUCATION =====
+  {
+    id: 24, num: "—", category: "education",
+    title: "Projukti Global Nursing Institute",
+    titleBn: "প্রযুক্তি গ্লোবাল নার্সিং ইনস্টিটিউট",
+    land: "—", floors: "—",
+    flatSizes: "—",
+    installment: "—",
+    type: "শিক্ষা প্রতিষ্ঠান",
+    color: "purple",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 25, num: "—", category: "education",
+    title: "Projukti Global Medical College",
+    titleBn: "প্রযুক্তি গ্লোবাল মেডিকেল কলেজ",
+    land: "—", floors: "—",
+    flatSizes: "—",
+    installment: "—",
+    type: "মেডিকেল কলেজ",
+    color: "green",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 26, num: "—", category: "education",
+    title: "Projukti Global English Medium School & College",
+    titleBn: "প্রযুক্তি গ্লোবাল ইংলিশ মিডিয়াম স্কুল ও কলেজ",
+    land: "—", floors: "—",
+    flatSizes: "—",
+    installment: "—",
+    type: "স্কুল ও কলেজ",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  // ===== COMMERCIAL =====
+  {
+    id: 27, num: "—", category: "commercial",
+    title: "Projukti Global Gym Centre",
+    titleBn: "প্রযুক্তি গ্লোবাল জিম সেন্টার",
+    land: "২০ কাঠা", floors: "—",
+    flatSizes: "—",
+    installment: "যোগাযোগ করুন",
+    type: "বাণিজ্যিক প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 28, num: "—", category: "commercial",
+    title: "Projukti Global Thai & Chinese Restaurant",
+    titleBn: "প্রযুক্তি গ্লোবাল থাই ও চাইনিজ রেস্তোরাঁ",
+    land: "২০ কাঠা", floors: "—",
+    flatSizes: "—",
+    installment: "যোগাযোগ করুন",
+    type: "রেস্তোরাঁ প্রজেক্ট",
+    color: "purple",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 29, num: "—", category: "commercial",
+    title: "Projukti Global Community Centre",
+    titleBn: "প্রযুক্তি গ্লোবাল কমিউনিটি সেন্টার",
+    land: "৪০ কাঠা", floors: "—",
+    flatSizes: "—",
+    installment: "যোগাযোগ করুন",
+    type: "কমিউনিটি সেন্টার",
+    color: "green",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 30, num: "—", category: "commercial",
+    title: "Projukti Global Super Market",
+    titleBn: "প্রযুক্তি গ্লোবাল সুপার মার্কেট",
+    land: "৪০ কাঠা", floors: "—",
+    flatSizes: "—",
+    installment: "যোগাযোগ করুন",
+    type: "সুপার মার্কেট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  // ===== REAL ESTATE =====
+  {
+    id: 31, num: "—", category: "residential",
+    title: "Projukti Global City",
+    titleBn: "প্রযুক্তি গ্লোবাল সিটি",
+    land: "২০০ একর", floors: "—",
+    flatSizes: "—",
+    installment: "যোগাযোগ করুন",
+    type: "মেগা রিয়েল এস্টেট প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 32, num: "—", category: "residential",
+    title: "64 District Projukti Tower Network",
+    titleBn: "৬৪ জেলায় প্রযুক্তি টাওয়ার নেটওয়ার্ক",
+    land: "৬৪ জেলা", floors: "—",
+    flatSizes: "—",
+    installment: "যোগাযোগ করুন",
+    type: "জাতীয় প্রজেক্ট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  // Additional from drive
+  {
+    id: 33, num: "—", category: "residential",
+    title: "Projukti Global Palace (20 Katha - 2400 sqft)",
+    titleBn: "প্রযুক্তি গ্লোবাল প্যালেস (২০ কাঠা - ২৪০০ সফট)",
+    land: "২০ কাঠা", floors: "২০ তলা",
+    flatSizes: "২৪০০ স্কয়ার ফিট",
+    installment: "৭৬,০০০ ~ ৮৫,০০০/= মাসিক কিস্তি",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "gold",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 34, num: "—", category: "residential",
+    title: "Projukti Global Palace (20 Katha - 3600 sqft)",
+    titleBn: "প্রযুক্তি গ্লোবাল প্যালেস (২০ কাঠা - ৩৬০০ সফট)",
+    land: "২০ কাঠা", floors: "২০ তলা",
+    flatSizes: "৩৬০০ স্কয়ার ফিট",
+    installment: "৯০,০০০ ~ ৯৯,০০০/= মাসিক কিস্তি",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "primary",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 35, num: "—", category: "residential",
+    title: "Projukti Global Tower (20 Katha - 1600 sqft)",
+    titleBn: "প্রযুক্তি গ্লোবাল টাওয়ার (২০ কাঠা - ১৬০০ সফট)",
+    land: "২০ কাঠা", floors: "১৫ তলা",
+    flatSizes: "১৬০০ স্কয়ার ফিট",
+    installment: "৪৫,০০০ ~ ৪৯,০০০/= মাসিক কিস্তি",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "purple",
+    wa: "https://wa.me/8801708029997"
+  },
+  {
+    id: 36, num: "—", category: "residential",
+    title: "Projukti Global Palace (40 Katha - Condominium)",
+    titleBn: "প্রযুক্তি গ্লোবাল প্যালেস (৪০ কাঠা - কনডোমিনিয়াম)",
+    land: "৪০ কাঠা", floors: "২০ তলা",
+    flatSizes: "৪৫০ স্কয়ার ফিট",
+    installment: "যোগাযোগ করুন",
+    type: "কনডোমিনিয়াম প্রজেক্ট",
+    color: "green",
+    wa: "https://wa.me/8801708029997"
+  }
+];
+
+function renderProjects(filter = 'all') {
+  const grid = document.getElementById('projectsGrid');
+  const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+  grid.innerHTML = filtered.map(p => `
+    <div class="project-card" data-category="${p.category}">
+      <div class="project-card-header ${p.color}">
+        ${p.num !== '—' ? `<div class="project-number">#${p.num}</div>` : ''}
+        <div class="project-type-badge">${p.type}</div>
+        <div class="project-card-title">${p.titleBn}</div>
+        <div class="project-card-subtitle">${p.title}</div>
+      </div>
+      <div class="project-card-body">
+        ${p.land !== '—' ? `<div class="project-detail"><span class="icon">📐</span><span>জমি: <strong>${p.land}</strong></span></div>` : ''}
+        ${p.floors !== '—' ? `<div class="project-detail"><span class="icon">🏗️</span><span>তলা: <strong>${p.floors}</strong></span></div>` : ''}
+        ${p.flatSizes !== '—' ? `<div class="project-detail"><span class="icon">📏</span><span>সাইজ: <strong>${p.flatSizes}</strong></span></div>` : ''}
+        ${p.installment !== '—' ? `<div class="project-detail"><span class="icon">💰</span><span>কিস্তি: <strong>${p.installment}</strong></span></div>` : ''}
+      </div>
+      <div class="project-card-footer">
+        <button class="btn-card btn-card-primary" onclick="openModal(${p.id})">বিস্তারিত</button>
+        <a href="${p.wa}" target="_blank" class="btn-card btn-card-wa">💬 WhatsApp</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProjects(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProjects(cat);
+}
+
+function openModal(id) {
+  const p = projects.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('modalTitle').textContent = p.titleBn;
+  document.getElementById('modalWA').href = p.wa;
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-detail"><strong>ইংরেজি নাম:</strong> ${p.title}</div>
+    <div class="modal-detail"><strong>বিভাগ:</strong> ${p.type}</div>
+    ${p.land !== '—' ? `<div class="modal-detail"><strong>জমির পরিমাণ:</strong> ${p.land}</div>` : ''}
+    ${p.floors !== '—' ? `<div class="modal-detail"><strong>তলার সংখ্যা:</strong> ${p.floors}</div>` : ''}
+    ${p.flatSizes !== '—' ? `<div class="modal-detail"><strong>ফ্ল্যাট সাইজ:</strong> ${p.flatSizes}</div>` : ''}
+    ${p.installment !== '—' ? `<div class="modal-detail"><strong>মাসিক কিস্তি:</strong> ${p.installment}</div>` : ''}
+    ${p.landPrice ? `<div class="modal-detail"><strong>জমির মূল্য:</strong> ${p.landPrice}</div>` : ''}
+    ${p.constructionCost ? `<div class="modal-detail"><strong>নির্মাণ খরচ:</strong> ${p.constructionCost}</div>` : ''}
+    <div class="modal-detail" style="margin-top:16px; padding:12px; background:#f5f7fa; border-radius:8px; font-size:13px; color:#666;">
+      বিস্তারিত তথ্যের জন্য আমাদের WhatsApp-এ যোগাযোগ করুন অথবা অফিসে আসুন।
+    </div>
+  `;
+  document.getElementById('projectModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('projectModal').classList.remove('open');
+}
+
+document.getElementById('projectModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function submitForm(e) {
+  e.preventDefault();
+  alert('আপনার অনুসন্ধান সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।');
+  e.target.reset();
+}
+
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+  links.style.flexDirection = 'column';
+  links.style.position = 'absolute';
+  links.style.top = '70px';
+  links.style.left = '0';
+  links.style.right = '0';
+  links.style.background = 'rgba(15,28,46,0.98)';
+  links.style.padding = '20px 5%';
+  links.style.gap = '16px';
+}
+
+// Init
+renderProjects();
+</script>
+</body>
+</html>
