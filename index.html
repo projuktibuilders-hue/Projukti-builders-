@@ -59,6 +59,11 @@
     .nav-title .en { font-size: 11px; color: var(--gold-light); opacity: 0.85; }
     .nav-links {
       display: flex; gap: 28px; list-style: none;
+      transition: all 0.3s;
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
     }
     .nav-links a {
       color: rgba(255,255,255,0.85);
@@ -79,6 +84,28 @@
       width: 25px; height: 2px; background: var(--white); border-radius: 2px;
       transition: 0.3s;
     }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    
+    /* ===== FLOATING WHATSAPP ===== */
+    .floating-wa {
+      position: fixed; bottom: 30px; right: 30px;
+      background: linear-gradient(135deg, #25d366, #20ba5c);
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; cursor: pointer; z-index: 999;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: bounce 2s infinite;
+    }
+    .floating-wa:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    
+    /* ===== SCROLL ANIMATION ===== */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
     /* ===== HERO ===== */
     .hero {
@@ -294,6 +321,29 @@
 
     /* ===== CATEGORIES ===== */
     .categories { background: var(--light); }
+    /* ===== FACILITIES ===== */
+    .facilities { background: var(--white); }
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .facility-card {
+      background: linear-gradient(135deg, rgba(26, 60, 110, 0.08), rgba(201, 168, 76, 0.05));
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .facility-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold-light);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
+    }
+    .facility-icon { font-size: 48px; margin-bottom: 16px; display: block; }
+    .facility-card h3 { font-size: 1.2rem; color: var(--dark); margin-bottom: 12px; font-weight: 600; }
+    .facility-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
     .cat-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 24px;
@@ -393,13 +443,16 @@
     .wa-float {
       position: fixed; bottom: 28px; right: 28px; z-index: 999;
       width: 58px; height: 58px; border-radius: 50%;
-      background: #25D366; color: var(--white);
+      background: linear-gradient(135deg, #25d366, #20ba5c); color: var(--white);
       display: flex; align-items: center; justify-content: center;
       font-size: 26px; text-decoration: none;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-      transition: transform 0.2s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: wa-bounce 2s infinite;
     }
-    .wa-float:hover { transform: scale(1.1); }
+    .wa-float:hover { transform: scale(1.15); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7); }
+    @keyframes wa-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @media (max-width: 768px) { .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 22px; } }
 
     /* ===== MODAL ===== */
     .modal-overlay {
@@ -456,11 +509,11 @@
     <li><a href="#contact">যোগাযোগ</a></li>
     <li><a href="https://wa.me/8801708029997" class="nav-cta" target="_blank">📞 কল করুন</a></li>
   </ul>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
-</nav>
-
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
@@ -621,6 +674,58 @@
   </div>
 </section>
 
+<!-- FACILITIES -->
+<section class="facilities" id="facilities">
+  <div class="section-header">
+    <div class="section-tag">সুবিধাসমূহ</div>
+    <h2 class="section-title">আমাদের প্রজেক্টের বৈশিষ্ট্য</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">প্রতিটি প্রজেক্টে আন্তর্জাতিক মানের সুবিধা এবং নিরাপত্তা ব্যবস্থা</p>
+  </div>
+  <div class="facilities-grid">
+    <div class="facility-card">
+      <div class="facility-icon">🏊</div>
+      <h3>সুইমিং পুল</h3>
+      <p>আধুনিক সুইমিং পুল এবং ওয়াটার স্পোর্টস সুবিধা</p>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🏋️</div>
+      <h3>ফিটনেস জিম</h3>
+      <p>সম্পূর্ণ সজ্জিত জিম এবং যোগ স্টুডিও</p>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🎮</div>
+      <h3>খেলার মাঠ</h3>
+      <p>শিশুদের জন্য আধুনিক প্লে গ্রাউন্ড এবং খেলার সুবিধা</p>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🌳</div>
+      <h3>সবুজ বাগান</h3>
+      <p>বিশাল বাগান এবং ল্যান্ডস্কেপিং এর সাথে পরিবেশ বান্ধব পরিবেশ</p>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🏥</div>
+      <h3>স্বাস্থ্যসেবা</h3>
+      <p>২৪/৭ মেডিকেল সেন্টার এবং অ্যাম্বুলেন্স সেবা</p>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🔒</div>
+      <h3>নিরাপত্তা</h3>
+      <p>ডিজিটাল সিকিউরিটি সিস্টেম এবং ২৪/৭ নিরাপত্তা কর্মী</p>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🍽️</div>
+      <h3>রেস্তোরাঁ</h3>
+      <p>থাই এবং চাইনিজ রেস্তোরাঁ সহ খাবারের সুবিধা</p>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🚗</div>
+      <h3>পার্কিং</h3>
+      <p>বহুতল পার্কিং এবং ইলেকট্রিক গাড়ি চার্জিং স্টেশন</p>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-header">
@@ -662,6 +767,9 @@
       <div style="margin-top:24px;">
         <a href="https://wa.me/8801708029997" target="_blank" class="btn-primary" style="display:inline-flex;">
           💬 WhatsApp-এ মেসেজ করুন
+        </a>
+      <a href="https://wa.me/8801770736668" target="blank" class="btn-primary" style="display:inline-flex; margin-left: 12px;">
+          💬 +88 01770-736668
         </a>
       </div>
     </div>
@@ -1241,17 +1349,39 @@ function submitForm(e) {
 }
 
 function toggleMenu() {
+  const hamburger = document.getElementById('hamburger');
   const links = document.querySelector('.nav-links');
-  links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-  links.style.flexDirection = 'column';
-  links.style.position = 'absolute';
-  links.style.top = '70px';
-  links.style.left = '0';
-  links.style.right = '0';
-  links.style.background = 'rgba(15,28,46,0.98)';
-  links.style.padding = '20px 5%';
-  links.style.gap = '16px';
+  hamburger.classList.toggle('active');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.display = 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '70px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'rgba(15,28,46,0.98)';
+    links.style.padding = '20px 5%';
+    links.style.gap = '16px';
+    links.style.zIndex = '999';
+  }
 }
+
+// Scroll Animation
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.project-card, .facility-card, .cat-card').forEach(el => {
+  el.classList.add('fade-in');
+  observer.observe(el);
+});
 
 // Init
 renderProjects();
