@@ -344,6 +344,22 @@
     .facility-card h3 { font-size: 1.2rem; color: var(--dark); margin-bottom: 12px; font-weight: 600; }
     .facility-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
 
+    /* ===== MARKETING PLAN ===== */
+    .marketing-plan { background: var(--light); }
+    .table-container { overflow-x: auto; margin-top: 30px; border-radius: 12px; box-shadow: var(--shadow); background: var(--white); }
+    table { width: 100%; border-collapse: collapse; min-width: 600px; }
+    th, td { padding: 18px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: var(--primary); color: var(--white); font-weight: 600; }
+    tr:last-child { background: rgba(201, 168, 76, 0.1); font-weight: 700; }
+    tr:hover:not(:last-child) { background: rgba(26, 60, 110, 0.02); }
+    .badge-rank { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+    .rank-1 { background: #e3f2fd; color: #1976d2; }
+    .rank-2 { background: #f5f5f5; color: #616161; }
+    .rank-3 { background: #fff9c4; color: #fbc02d; }
+    .rank-4 { background: #e1f5fe; color: #0288d1; }
+    .rank-5 { background: #f3e5f5; color: #7b1fa2; }
+    .rank-6 { background: #e8f5e9; color: #388e3c; }
+
     .cat-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 24px;
@@ -606,6 +622,78 @@
   </div>
 </section>
 
+<!-- MARKETING PLAN -->
+<section class="marketing-plan" id="marketing">
+  <div class="section-header">
+    <div class="section-tag">মার্কেটিং প্ল্যান</div>
+    <h2 class="section-title">পার্টনারশিপ ইনকাম ও কমিশন স্ট্রাকচার</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">আমাদের সাথে যুক্ত হয়ে নিশ্চিত আয়ের সুযোগ তৈরি করুন। স্বচ্ছ কমিশন এবং বোনাস পদ্ধতি।</p>
+  </div>
+  <div class="table-container fade-in">
+    <table>
+      <thead>
+        <tr>
+          <th>ক্রমিক</th>
+          <th>পদবী (Rank)</th>
+          <th>প্রাপ্তি বা কমিশন ধরন</th>
+          <th>টাকার অংক (টাকায়)</th>
+          <th>মোট প্রাপ্তি</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>১</td>
+          <td><span class="badge-rank rank-1">ব্রাঞ্চ পার্টনার</span></td>
+          <td>সরাসরি বিক্রয় কমিশন (২%) + পদবীর বোনাস (০.৩%)</td>
+          <td>২,০০,০০০ + ৩০,০০০</td>
+          <td>২,৩০,০০০ টাকা</td>
+        </tr>
+        <tr>
+          <td>২</td>
+          <td><span class="badge-rank rank-2">সিলভার পার্টনার</span></td>
+          <td>টিম ওভাররাইডিং কমিশন</td>
+          <td>২০,০০০/-</td>
+          <td>২০,০০০ টাকা</td>
+        </tr>
+        <tr>
+          <td>৩</td>
+          <td><span class="badge-rank rank-3">গোল্ডেন পার্টনার</span></td>
+          <td>টিম ওভাররাইডিং কমিশন</td>
+          <td>১৫,০০০/-</td>
+          <td>১৫,০০০ টাকা</td>
+        </tr>
+        <tr>
+          <td>৪</td>
+          <td><span class="badge-rank rank-4">ডায়মন্ড পার্টনার</span></td>
+          <td>লিডারশিপ বোনাস</td>
+          <td>১০,০০০/-</td>
+          <td>১০,০০০ টাকা</td>
+        </tr>
+        <tr>
+          <td>৫</td>
+          <td><span class="badge-rank rank-5">প্লাটিনাম পার্টনার</span></td>
+          <td>এক্সিকিউটিভ বোনাস</td>
+          <td>১০,০০০/-</td>
+          <td>১০,০০০ টাকা</td>
+        </tr>
+        <tr>
+          <td>৬</td>
+          <td><span class="badge-rank rank-6">ডাইরেক্টর</span></td>
+          <td>গ্লোবাল প্রফিট শেয়ার</td>
+          <td>১৫,০০০/-</td>
+          <td>১৫,০০০ টাকা</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align: right;">সর্বমোট মার্কেটিং ফান্ড ডিস্ট্রিবিউশন</td>
+          <td>৩,০০,০০০/-</td>
+          <td>৩,০০,০০০ টাকা</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- CATEGORIES -->
 <section class="categories" id="categories">
   <div class="section-header">
@@ -828,6 +916,7 @@
         <li><a href="#home">হোম</a></li>
         <li><a href="#about">আমাদের সম্পর্কে</a></li>
         <li><a href="#projects">প্রজেক্টসমূহ</a></li>
+        <li><a href="#marketing">মার্কেটিং প্ল্যান</a></li>
         <li><a href="#categories">বিভাগ</a></li>
         <li><a href="#contact">যোগাযোগ</a></li>
       </ul>
