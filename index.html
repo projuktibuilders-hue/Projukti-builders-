@@ -360,6 +360,24 @@
     .rank-5 { background: #f3e5f5; color: #7b1fa2; }
     .rank-6 { background: #e8f5e9; color: #388e3c; }
 
+    /* ===== AUTO MARKETING ===== */
+    .auto-marketing { background: var(--white); }
+    .marketing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 40px; }
+    .marketing-content h3 { font-size: 1.4rem; color: var(--dark); margin-bottom: 16px; font-weight: 700; }
+    .marketing-content p { font-size: 15px; color: var(--text-light); margin-bottom: 16px; line-height: 1.8; }
+    .marketing-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .benefit-item { background: rgba(201, 168, 76, 0.08); padding: 16px; border-radius: 10px; border-left: 4px solid var(--gold); }
+    .benefit-item strong { display: block; color: var(--primary); margin-bottom: 6px; font-size: 14px; }
+    .benefit-item span { font-size: 13px; color: var(--text-light); }
+    .roadmap-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 30px; }
+    .timeline-item { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: var(--white); padding: 20px; border-radius: 10px; text-align: center; }
+    .timeline-week { font-size: 13px; opacity: 0.8; margin-bottom: 8px; }
+    .timeline-task { font-size: 13px; font-weight: 600; line-height: 1.4; }
+    @media (max-width: 768px) { 
+      .marketing-grid { grid-template-columns: 1fr; }
+      .roadmap-timeline { grid-template-columns: 1fr; }
+    }
+
     .cat-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 24px;
@@ -694,6 +712,82 @@
   </div>
 </section>
 
+<!-- AUTO MARKETING -->
+<section class="auto-marketing" id="auto-marketing">
+  <div class="section-header">
+    <div class="section-tag">অটো মার্কেটিং</div>
+    <h2 class="section-title">স্মার্ট অটো মার্কেটিং গাইড</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">প্রবাসীদের কাছে পৌঁছানোর আধুনিক গাইডলাইন</p>
+  </div>
+  <div class="marketing-grid fade-in">
+    <div class="marketing-content">
+      <h3>🌐 আন্তর্জাতিক উপস্থিতি</h3>
+      <p>আমেরিকা, ইউরোপ ও মধ্যপ্রাচ্যের ১.৫ কোটি + প্রবাসী বাংলাদেশিকে সরাসরি পৌঁছানো। AI চালিত অটোমেশন ২৪/৭ কাস্টমার सেবা প্রদান করে।</p>
+      <div class="marketing-benefits">
+        <div class="benefit-item">
+          <strong>🎥 প্রিমিয়াম কোয়ালিটি</strong>
+          <span>২০০০ দৈর্ঘ প্রপর্টি ভিডিও এবং ৩D রেন্ডারিং</span>
+        </div>
+        <div class="benefit-item">
+          <strong>💵 স্বচ্ছ কমিশন</strong>
+          <span>সম্পূর্ণ রাসপতা ও বোনাস সিস্টেম</span>
+        </div>
+        <div class="benefit-item">
+          <strong>🌟 ২৪/৭ অটোমেশন</strong>
+          <span>হোয়াটসঅ্যাপ ও মেসেন্জার বট অটোমেশন</span>
+        </div>
+        <div class="benefit-item">
+          <strong>🎉 স্মার্ট টার্গেটিং</strong>
+          <span>লোকেশন ও আগ্রহ ভিত্তি অনুযায়ী</span>
+        </div>
+      </div>
+    </div>
+    <div class="marketing-content fade-in">
+      <h3>🗓️ ইমপ্লিমেন্টেশন রোডম্যাপ (২৫ দিন)</h3>
+      <div class="roadmap-timeline">
+        <div class="timeline-item">
+          <div class="timeline-week">সপ্তাহ ১</div>
+          <div class="timeline-task">ডিসকভারি ও স্ট্র্যাটেজি + CRM সেতাপ</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">সপ্তাহ ২</div>
+          <div class="timeline-task">লিড স্কোরিং ও ভিডিও অ্যাসেট তৈরি</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">সপ্তাহ ৩</div>
+          <div class="timeline-task">AI অটোমেশন ইন্টিগ্রেশন ও ক্যাম্পেইন লউন্চ</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">সপ্তাহ ৪</div>
+          <div class="timeline-task">পারফরমেন্স অপ্টিমাইজেশন</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background: rgba(26, 60, 110, 0.08); padding: 30px; border-radius: 12px; margin-top: 40px; border-left: 4px solid var(--gold);">
+    <h3 style="color: var(--dark); margin-bottom: 16px; font-size: 1.2rem;">📊 পরিসংখ্যান অনুসারে</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+      <div>
+        <strong style="color: var(--primary); display: block; margin-bottom: 8px;">💵 প্রথাগত মার্কেটিং</strong>
+        <span style="color: var(--text-light); font-size: 13px;">সময় অত্যধিক (ম্যানুয়াল কাজ)</span>
+      </div>
+      <div>
+        <strong style="color: var(--primary); display: block; margin-bottom: 8px;">🗣️ অটো মার্কেটিং</strong>
+        <span style="color: var(--text-light); font-size: 13px;">সময় অত্যন্ত (অটোমেটেড)</span>
+      </div>
+      <div>
+        <strong style="color: var(--primary); display: block; margin-bottom: 8px;">🎉 ইন্জেমেন্ট</strong>
+        <span style="color: var(--text-light); font-size: 13px;">সীমিত (১০০০+) ও সারাদেশ</span>
+      </div>
+      <div>
+        <strong style="color: var(--primary); display: block; margin-bottom: 8px;">🔍 ওয়েব অ্যানালিটিক্স</strong>
+        <span style="color: var(--text-light); font-size: 13px;">রিয়াল-টাইম ডেটা ও ইনসাইটস</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CATEGORIES -->
 <section class="categories" id="categories">
   <div class="section-header">
@@ -917,6 +1011,7 @@
         <li><a href="#about">আমাদের সম্পর্কে</a></li>
         <li><a href="#projects">প্রজেক্টসমূহ</a></li>
         <li><a href="#marketing">মার্কেটিং প্ল্যান</a></li>
+        <li><a href="#auto-marketing">অটো মার্কেটিং</a></li>
         <li><a href="#categories">বিভাগ</a></li>
         <li><a href="#contact">যোগাযোগ</a></li>
       </ul>
@@ -1467,13 +1562,23 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.project-card, .facility-card, .cat-card').forEach(el => {
+document.querySelectorAll('.project-card, .facility-card, .cat-card, .auto-marketing').forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
 
 // Init
 renderProjects();
+
+// Auto-hide mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    const hamburger = document.getElementById('hamburger');
+    const links = document.querySelector('.nav-links');
+    hamburger.classList.remove('active');
+    links.style.display = 'none';
+  });
+});
 </script>
 </body>
 </html>
