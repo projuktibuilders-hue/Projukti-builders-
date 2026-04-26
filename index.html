@@ -258,56 +258,112 @@
 
 <section id="receipt">
   <div class="section-header">
-    <div class="section-tag">মান-রশিদ</div>
-    <h2 class="section-title">ডিজিটাল প্রিমিয়াম মান-রশিদ</h2>
+    <div class="section-tag">মান-রশিদ ও ফরম ফিলাপ</div>
+    <h2 class="section-title">ডিজিটাল পেমেন্ট ও বায়না দলিল ফরম</h2>
     <div class="divider"></div>
+    <p style="margin-top: 20px;">আপনার তথ্য প্রদান করুন, বায়না দলিল গ্রহণ করুন এবং পেমেন্ট সম্পন্ন করুন।</p>
   </div>
   <div class="receipt-container">
-    <div class="receipt-header">
-      <h2>প্রযুক্তি বিল্ডার্স এন্ড প্রযুক্তি প্রিমিয়াম প্রপার্টি লিঃ</h2>
-      <p>তাজ মার্কেট-৩য় তলা, ঘাটারচর, মোহাম্মদপুর-বসিলা রোড, ঢাকা ১৩১৫</p>
-    </div>
-    <div class="receipt-row">
-      <div class="receipt-field"><strong>নাম:</strong> ................................................</div>
-      <div class="receipt-field"><strong>সিরিয়াল নং:</strong> .......................</div>
-      <div class="receipt-field"><strong>তারিখ:</strong> .......................</div>
-    </div>
-    <table class="receipt-table">
-      <thead>
-        <tr>
-          <th>ফ্ল্যাট</th>
-          <th>দোকান</th>
-          <th>কলেজ</th>
-          <th>কমিউনিটি</th>
-          <th>হাসপাতাল</th>
-          <th>জিম</th>
-          <th>রেস্টুরেন্ট</th>
-          <th>১০% সার্ভিস</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>৫০,০০০</td>
-          <td>৫,০০০</td>
-          <td>৫,০০০</td>
-          <td>৫,০০০</td>
-          <td>৫,০০০</td>
-          <td>৫,০০০</td>
-          <td>৫,০০০</td>
-          <td>১,২০০</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="receipt-row" style="margin-top: 30px;">
-      <div class="receipt-field"><strong>মোট জমা:</strong> ৬,০০,০০০</div>
-      <div class="receipt-field"><strong>মোট পাওনা:</strong> ৪৫,০০,০০০</div>
-      <div class="receipt-field"><strong>২% বোনাস:</strong> ১৬০</div>
-      <div class="receipt-field"><strong>রেফারেন্স বোনাস:</strong> ৭,০০০</div>
-    </div>
-    <div style="margin-top: 40px; display: flex; justify-content: space-between;">
-      <div>................................<br>নোট লিখার অপশন</div>
-      <div>................................<br>স্বাক্ষর</div>
-    </div>
+    <form id="paymentForm">
+      <div class="receipt-header">
+        <h2>প্রযুক্তি বিল্ডার্স এন্ড প্রযুক্তি প্রিমিয়াম প্রপার্টি লিঃ</h2>
+        <p>তাজ মার্কেট-৩য় তলা, ঘাটারচর, মোহাম্মদপুর-বসিলা রোড, ঢাকা ১৩১৫</p>
+      </div>
+      
+      <div class="receipt-row">
+        <div class="receipt-field" style="border: none;">
+          <strong>নাম:</strong> 
+          <input type="text" placeholder="আপনার পূর্ণ নাম" style="width: 70%; border: none; border-bottom: 1px dotted #333; outline: none;">
+        </div>
+        <div class="receipt-field" style="border: none;">
+          <strong>সিরিয়াল নং:</strong> 
+          <input type="text" placeholder="সিরিয়াল" style="width: 50%; border: none; border-bottom: 1px dotted #333; outline: none;">
+        </div>
+        <div class="receipt-field" style="border: none;">
+          <strong>তারিখ:</strong> 
+          <input type="date" style="width: 60%; border: none; border-bottom: 1px dotted #333; outline: none;">
+        </div>
+      </div>
+
+      <div style="overflow-x: auto; margin-top: 20px;">
+        <table class="receipt-table">
+          <thead>
+            <tr>
+              <th>ফ্ল্যাট (টাকা)</th>
+              <th>দোকান (টাকা)</th>
+              <th>কলেজ (টাকা)</th>
+              <th>কমিউনিটি (টাকা)</th>
+              <th>হাসপাতাল (টাকা)</th>
+              <th>জিম (টাকা)</th>
+              <th>রেস্টুরেন্ট (টাকা)</th>
+              <th>১০% সার্ভিস</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="number" class="calc-input" data-type="flat" placeholder="0" style="width: 100%; border: none; outline: none;"></td>
+              <td><input type="number" class="calc-input" data-type="shop" placeholder="0" style="width: 100%; border: none; outline: none;"></td>
+              <td><input type="number" class="calc-input" data-type="college" placeholder="0" style="width: 100%; border: none; outline: none;"></td>
+              <td><input type="number" class="calc-input" data-type="comm" placeholder="0" style="width: 100%; border: none; outline: none;"></td>
+              <td><input type="number" class="calc-input" data-type="hosp" placeholder="0" style="width: 100%; border: none; outline: none;"></td>
+              <td><input type="number" class="calc-input" data-type="gym" placeholder="0" style="width: 100%; border: none; outline: none;"></td>
+              <td><input type="number" class="calc-input" data-type="rest" placeholder="0" style="width: 100%; border: none; outline: none;"></td>
+              <td><input type="number" class="calc-input" data-type="service" placeholder="0" style="width: 100%; border: none; outline: none;"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="receipt-row" style="margin-top: 30px;">
+        <div class="receipt-field" style="border: none;">
+          <strong>মোট জমা:</strong> 
+          <span id="totalDeposit" style="font-weight: 700; color: var(--primary);">০</span> টাকা
+        </div>
+        <div class="receipt-field" style="border: none;">
+          <strong>মোট পাওনা:</strong> 
+          <input type="number" placeholder="বাকি অংক" style="width: 50%; border: none; border-bottom: 1px dotted #333; outline: none;">
+        </div>
+        <div class="receipt-field" style="border: none;">
+          <strong>২% বোনাস:</strong> 
+          <span id="bonusAmount" style="font-weight: 700; color: #27ae60;">০</span> টাকা
+        </div>
+        <div class="receipt-field" style="border: none;">
+          <strong>রেফারেন্স বোনাস:</strong> 
+          <input type="number" placeholder="০" style="width: 50%; border: none; border-bottom: 1px dotted #333; outline: none;">
+        </div>
+      </div>
+
+      <div style="margin-top: 30px; background: var(--light); padding: 20px; border-radius: 10px;">
+        <h4 style="margin-bottom: 15px; color: var(--primary);">📄 ডকুমেন্ট ও পেমেন্ট প্রুফ আপলোড</h4>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 200px;">
+            <label style="font-size: 13px; display: block; margin-bottom: 5px;">বায়না দলিলের ছবি:</label>
+            <input type="file" class="file-upload" style="font-size: 12px;">
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <label style="font-size: 13px; display: block; margin-bottom: 5px;">টাকা জমার রশিদ:</label>
+            <input type="file" class="file-upload" style="font-size: 12px;">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 30px;">
+        <strong>নোট লিখুন:</strong><br>
+        <textarea placeholder="আপনার বিশেষ কোনো তথ্য থাকলে এখানে লিখুন..." style="width: 100%; height: 80px; margin-top: 10px; border: 1px solid var(--border); border-radius: 5px; padding: 10px; outline: none; font-family: inherit;"></textarea>
+      </div>
+
+      <div style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="text-align: center;">
+          <div style="width: 150px; border-bottom: 1px solid #333; margin-bottom: 5px;"></div>
+          <span style="font-size: 13px;">গ্রাহকের স্বাক্ষর</span>
+        </div>
+        <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">✅ ফরম জমা দিন ও রিসিট ডাউনলোড করুন</button>
+        <div style="text-align: center;">
+          <div style="width: 150px; border-bottom: 1px solid #333; margin-bottom: 5px;"></div>
+          <span style="font-size: 13px;">কর্তৃপক্ষের স্বাক্ষর</span>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -372,6 +428,27 @@ function renderProjects() {
 }
 
 renderProjects();
+
+// Dynamic Calculation Logic
+const inputs = document.querySelectorAll('.calc-input');
+const totalDisplay = document.getElementById('totalDeposit');
+const bonusDisplay = document.getElementById('bonusAmount');
+
+inputs.forEach(input => {
+  input.addEventListener('input', () => {
+    let total = 0;
+    inputs.forEach(i => {
+      total += Number(i.value) || 0;
+    });
+    totalDisplay.innerText = total.toLocaleString('bn-BD');
+    bonusDisplay.innerText = (total * 0.02).toLocaleString('bn-BD');
+  });
+});
+
+document.getElementById('paymentForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('আপনার ফরমটি সফলভাবে জমা দেওয়া হয়েছে। কর্তৃপক্ষ শীঘ্রই আপনার সাথে যোগাযোগ করবে। ধন্যবাদ!');
+});
 </script>
 </body>
 </html>
